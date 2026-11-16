@@ -1,0 +1,27 @@
+---
+description: GitLab 是主仓库，GitHub 只接收同一份推送
+alwaysApply: true
+---
+
+# 远程仓库
+
+主仓库是 GitLab。GitHub 只接收代码，用来保留一份镜像。
+
+- 主远程 `origin`（fetch，以及协作的默认上游）：`git@gitlab.yeahmobi.com:yeahcloudadrd/WrenAI.git`
+- 镜像：`https://github.com/zhulaoqi/WrenAI.git`
+- `origin` 有两个 push URL。`git push` 必须同时到达 GitLab 和 GitHub。
+- 合并请求、issue、默认分支以 GitLab 为准。不要在 GitHub 上开 pull request，也不要把它当成评审或问题跟踪的来源。
+- 推送前看 `git remote -v`：`origin` 的 fetch 是 GitLab，push 同时包含 GitLab 和 GitHub。缺了哪一边就补上，不要只推一边。
+- 禁止对 `main` 强推，除非用户明确要求。
+
+本地远程丢了时，恢复成：
+
+```bash
+git remote set-url origin git@gitlab.yeahmobi.com:yeahcloudadrd/WrenAI.git
+git remote set-url --add --push origin git@gitlab.yeahmobi.com:yeahcloudadrd/WrenAI.git
+git remote set-url --add --push origin https://github.com/zhulaoqi/WrenAI.git
+git fetch origin
+git branch -u origin/main
+```
+
+补 push URL 之前先看 `git config --local --get-regexp '^remote\.origin\.pushurl'`。已经有的不要重复添加。
