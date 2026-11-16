@@ -13,4 +13,4 @@ GitLab is the primary repository. GitHub only receives the same commits.
 - Primary (`origin` fetch and upstream): `git@gitlab.yeahmobi.com:yeahcloudadrd/WrenAI.git`
 - Mirror (second `origin` push URL): `https://github.com/zhulaoqi/WrenAI.git`
 
-`git push` must update both. Open merge requests on GitLab. Do not use GitHub for review or as the source of truth. The standing rule is `.cursor/rules/git-remotes.mdc`.
+The maintained branch is `release`, tracking `origin/release`. `git push` updates that branch on both remotes. Do not push `main`. Open merge requests on GitLab. Do not use GitHub for review or as the source of truth. The standing rule is `.cursor/rules/git-remotes.mdc`.
