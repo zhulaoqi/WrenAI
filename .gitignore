@@ -68,6 +68,7 @@ yarn-error.log*
 local_cache/
 .tmp/
 .tmp
+deploy/bi/*.tar
 
 # ---- Claude Code worktrees (local dev only) ----
 **/.claude/worktrees/

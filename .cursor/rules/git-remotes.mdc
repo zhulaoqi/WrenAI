@@ -8,7 +8,7 @@ alwaysApply: true
 主仓库是 GitLab。GitHub 只接收代码，用来保留一份镜像。
 
 - 主远程 `origin`（fetch，以及协作上游）：`git@gitlab.yeahmobi.com:yeahcloudadrd/WrenAI.git`
-- 镜像：`https://github.com/zhulaoqi/WrenAI.git`
+- 镜像：`git@github.com:zhulaoqi/WrenAI.git`
 - 日常维护的分支是 `release`，上游跟踪 `origin/release`。`git push` 只推 `release`，并且必须同时到达 GitLab 和 GitHub。
 - 不要向两边的 `main` 推送，也不要覆盖 `main`。
 - 合并请求和 issue 以 GitLab 为准。不要在 GitHub 上开 pull request，也不要把它当成评审或问题跟踪的来源。
@@ -19,7 +19,7 @@ alwaysApply: true
 ```bash
 git remote set-url origin git@gitlab.yeahmobi.com:yeahcloudadrd/WrenAI.git
 git remote set-url --add --push origin git@gitlab.yeahmobi.com:yeahcloudadrd/WrenAI.git
-git remote set-url --add --push origin https://github.com/zhulaoqi/WrenAI.git
+git remote set-url --add --push origin git@github.com:zhulaoqi/WrenAI.git
 git fetch origin
 git checkout -B release origin/release
 ```
